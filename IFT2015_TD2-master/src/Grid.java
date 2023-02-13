@@ -1,13 +1,17 @@
 public class Grid {
     public class Cell {
-        // TODO
+        public int haut;
+        public int droite;
+        public int ;
+        public int haut;
+
 
         public Cell(){
             // TODO
             return;
         }
     }
-    
+
     // TODO
 
     public Grid(){
