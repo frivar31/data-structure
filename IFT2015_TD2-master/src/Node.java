@@ -3,16 +3,16 @@ public class Node {
     Node next;
     Node head;
 
-    public Node() {
-    }
     public Node(int value) {
         this.value = value;
         this.next = null;
+        head = this;
     }
 
     public Node(int value, Node next) {
         this.value = value;
         this.next = next;
+        head = this;
     }
 
     // la methode addvalue prend un argument (int value ) et elle ajoute la valeur ,en appelant recursivement la methode

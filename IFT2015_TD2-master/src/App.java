@@ -29,7 +29,7 @@ public class App {
 
         System.out.println("________________________________________________________");
 
-        Node n = new Node() ;
+        Node n = new Node(32) ;
         n.addvalue(15);
         n.addvalue(20);
         n.addvalue(2);
