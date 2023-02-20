@@ -7,7 +7,7 @@ public class Grid {
         private Cell gauche;
         private Cell bas;
 
-        public Cell(int val){// constructeur de notre cell
+        public Cell(int val){   // constructeur de notre cell
             haut=null;
             droite=null;
             gauche=null;
@@ -49,18 +49,18 @@ public class Grid {
     public  Grid(){ // on cree notre tableau
         grid = new Cell[12];
 
-        grid[0]=new Cell(1);
-        grid[1]=new Cell(1);
+        grid[0]=new Cell(25);
+        grid[1]=new Cell(10);
         grid[2]=new Cell(1);
-        grid[3]=new Cell(1);
-        grid[4]=new Cell(0);
+        grid[3]=new Cell(10);
+        grid[4]=new Cell(1);
         grid[5]=new Cell(5);
         grid[6]=new Cell(5);
         grid[7]=new Cell(10);
         grid[8]=new Cell(1);
-        grid[9]=new Cell(1);
+        grid[9]=new Cell(10);
         grid[10]=new Cell(1);
-        grid[11]=new Cell(1);
+        grid[11]=new Cell(-1);
 
         grid[0].setDroite(grid[1]);
         grid[1].setDroite(grid[2]);
@@ -104,42 +104,49 @@ public class Grid {
 
     public Cell[] getGrid() {
         return grid;
-    }
+    }// pour get nos valeurs du tableau et les moves
     public void setGrid(Cell[] grid) {
         this.grid = grid;
     }
+
+
+    // fonction pour echanger les elements du tableau
     public boolean move(Cell box) {
 
+        //box dois pas etre vide et la droite de box doit etre vide et ne doit pas pointer vers null
         if (box.getDroite()!=null && box.getDroite().getValeur() == -1 && box.getValeur() != -1 ) {
-            box.getDroite().setValeur(box.getValeur());                                  //la case a bouger dois pas etre vide mais ca droite dois l'etre
-            box.setValeur(-1);                     // echanger la valeurs des deux cases
+            box.getDroite().setValeur(box.getValeur());                                  // mettre la valeurs de box dans la case vide
+            box.setValeur(-1);                                                           // et mettre la box a -1( deviens notre case vide)
 
             return true;
-        } else if (box.getGauche()!=null && box.getGauche().getValeur() == -1 && box.getValeur() != -1) { // meme chose mais pour la gauche
-            box.getGauche().setValeur(box.getValeur());                                  //la case a bouger dois pas etre vide mais ca droite dois l'etre
+
+        } else if (box.getGauche()!=null && box.getGauche().getValeur() == -1 && box.getValeur() != -1) { //la meme logique que droite
+            box.getGauche().setValeur(box.getValeur());                                  //swap les case ( meme logique que droite)
             box.setValeur(-1);
             return true;
         } else if (box.getBas()!=null && box.getBas().getValeur() == -1 && box.getValeur() != -1) {
-            box.getBas().setValeur(box.getValeur());                                  //la case a bouger dois pas etre vide mais ca droite dois l'etre
+            box.getBas().setValeur(box.getValeur());
             box.setValeur(-1);
             return true;
         } else if (box.getHaut()!=null &&box.getHaut().getValeur() == -1 && box.getValeur() != -1) {
-            box.getHaut().setValeur(box.getValeur());                                  //la case a bouger dois pas etre vide mais ca droite dois l'etre
+            box.getHaut().setValeur(box.getValeur());
             box.setValeur(-1);
             return true;
         }
         return false;
     }
+
+    //fonction qui verifie si le jeux est complete revoie true
     public boolean check_complete(){
-        for (int i = 0; i <= 3; i++) { // on verifier si dans la grid les valeurs de la premiere ligne == a la derniere
-            if (grid[i].getValeur()!=grid[i+8].getValeur()){
+        for (int i = 0; i <= 3; i++) {                      // on verifier si dans la grid les valeurs de la premiere-
+            if (grid[i].getValeur()!=grid[i+8].getValeur()){// ligne != a la derniere alors il est pas terminer
                 return false;
             }
         }
 
         return true;
     }
-    public void print(){
+    public void print(){        // on imprime les elements comme un tableau de 3x4
         System.out.print("(");
         for (int i = 0; i <12 ; i++) {
             if (i==4||i==8){
@@ -147,13 +154,17 @@ public class Grid {
             }
             System.out.print(grid[i].getValeur());
             System.out.print(",");
-
-
         }
         System.out.print(")");
     }
 
-    public void solve_game(){
+    public void solve_game(){   // pas fini
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 12; j++) {
+                // TODO: 2023-02-19
+            }
+
+        }
 
     }
 }
