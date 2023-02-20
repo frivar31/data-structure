@@ -16,7 +16,7 @@
             }
             return false;
         }
-        
+
         public boolean isFull(){
             if(start==end+1){
                 return true;
@@ -57,14 +57,12 @@
                 return x;
                 }
         }
-
         public int length(){
             if (start>end){
                 return start-end+1;
             }
             return end-start+1;
         }
-
         public void print(){
             System.out.print('(');
             for (int i = 0; i < elements.length - 1; i++) {
@@ -74,8 +72,6 @@
             System.out.print(elements[elements.length - 1]);
             System.out.println(')');
         }
-
-
         public boolean search(int element){
             for (int i = 0; i <elements.length; i++) {
                 if(i==element){
@@ -84,13 +80,21 @@
             }
             return false;
         }
-
         public void remove(int value){
             for (int i = 0; i <elements.length; i++) {
-                if(i==value){
-                    elements[i]=0;
+                if (elements[i]==value){
+                    for (int j = i; j < elements.length-1; j++) {
+                        elements[j] = elements[j + 1];
+                    }
                 }
+                if (i== elements.length-1){
+                    elements[i]=0;
+                    end--;
+                }
+
+
             }
+
         }
     }
 

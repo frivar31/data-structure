@@ -128,21 +128,17 @@ public class Node {
         else return 1+longueur(n.next);
     }
 
-
-        public int returnNlast(int nLast){
-            Node n = head;
-            if (nLast>=0) {
-                for (int i = 0; i < lengthRecurssion() - nLast-1 ; i++){
-                    n=n.next;
-                }
-                removeValue(n.value);
-                return n.value;
+    public int returnNlast(int nLast){
+        Node n = head;
+        if (nLast>=0) {
+            for (int i = 0; i < lengthRecurssion() - nLast-1 ; i++){
+                n=n.next;
             }
-            return -1;
+            removeValue(n.value);
+            return n.value;
         }
-
-
-
+        return -1;
+    }
 
     public void addValueOrdered(int value) {
         head = recursiveHelper(head, value);
@@ -195,5 +191,6 @@ public class Node {
             System.out.print(temp.value + " =>");
             temp = temp.next ;
         }
+        System.out.println(" null");
     }
 }
